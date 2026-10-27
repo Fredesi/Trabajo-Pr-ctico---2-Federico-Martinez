@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maquetas del Instituto</title>
+    <style>
+      :root {
+        --primary: #17324f;
+        --primary-strong: #0f273d;
+        --secondary: #2269a7;
+        --accent: #61d5c1;
+        --bg: #f4f7fb;
+        --panel: #ffffff;
+        --line: #dfe7f0;
+        --text: #203650;
+        --muted: #637792;
+        --soft: #edf4fb;
+        --danger: #fff2f3;
+        --danger-text: #af3344;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font: 16px "Segoe UI", Arial, sans-serif;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      header {
+        background: var(--primary);
+        color: #fff;
+        padding: 22px 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .logo {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        background: var(--accent);
+        color: var(--primary);
+        border-radius: 12px;
+        font-size: 1.7rem;
+        font-weight: 700;
+      }
+
+      .brand-text strong {
+        display: block;
+        font-size: 1.1rem;
+        letter-spacing: 0.05em;
+      }
+
+      .brand-text small {
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      nav {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        display: inline-block;
+        padding: 10px 14px;
+        border-radius: 8px;
+        color: rgba(255, 255, 255, 0.9);
+        transition: background 0.2s ease;
+      }
+
+      nav a:hover {
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      main {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 28px 24px 40px;
+      }
+
+      section {
+        padding: 26px 0 40px;
+        scroll-margin-top: 20px;
+      }
+
+      .tag {
+        color: #267f88;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin: 0 0 12px;
+        color: var(--primary);
+      }
+
+      h1 {
+        font-size: clamp(2rem, 3vw, 2.5rem);
+      }
+
+      p {
+        margin: 0 0 14px;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-top: 24px;
+      }
+
+      .card,
+      .panel {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 24px;
+        box-shadow: 0 8px 20px rgba(23, 50, 79, 0.04);
+      }
+
+      .card {
+        flex: 1 1 220px;
+        min-width: 220px;
+      }
+
+      .card h2 {
+        margin-bottom: 10px;
+        font-size: 1.4rem;
+      }
+
+      .button,
+      button {
+        display: inline-block;
+        background: var(--secondary);
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 12px 16px;
+        font: inherit;
+        cursor: pointer;
+        transition: transform 0.15s ease, opacity 0.2s ease;
+      }
+
+      .button:hover,
+      button:hover {
+        opacity: 0.97;
+        transform: translateY(-1px);
+      }
+
+      .button.secondary,
+      button.secondary {
+        background: var(--soft);
+        color: #24486c;
+      }
+
+      .button.danger,
+      button.danger {
+        background: var(--danger);
+        color: var(--danger-text);
+      }
+
+      .panel {
+        margin-top: 18px;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 18px;
+      }
+
+      .scroll {
+        overflow-x: auto;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: #fff;
+      }
+
+      table {
+        width: 100%;
+        min-width: 520px;
+        border-collapse: collapse;
+        text-align: left;
+      }
+
+      th,
+      td {
+        padding: 16px 14px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      th {
+        background: #f3f7fb;
+        color: var(--primary);
+        font-weight: 700;
+      }
+
+      tbody tr:hover {
+        background: #fafcff;
+      }
+
+      details {
+        margin-top: 22px;
+        border-top: 1px solid var(--line);
+        padding-top: 18px;
+      }
+
+      summary {
+        cursor: pointer;
+        color: var(--secondary);
+        font-weight: 700;
+        list-style: none;
+      }
+
+      summary::-webkit-details-marker {
+        display: none;
+      }
+
+      label {
+        display: block;
+        margin: 18px 0 8px;
+        color: var(--primary);
+        font-weight: 600;
+      }
+
+      input:not([type="checkbox"]) {
+        width: 100%;
+        max-width: 500px;
+        padding: 12px 14px;
+        border: 1px solid #c5d2e3;
+        border-radius: 8px;
+        font: inherit;
+        color: var(--text);
+        background: #fff;
+      }
+
+      input:focus {
+        outline: 2px solid rgba(34, 105, 167, 0.18);
+        border-color: var(--secondary);
+      }
+
+      .note {
+        margin-top: 16px;
+        font-size: 0.82rem;
+        color: var(--muted);
+      }
+
+      hr {
+        border: none;
+        border-top: 1px solid var(--line);
+        margin: 8px 0 0;
+      }
+
+      footer {
+        background: var(--primary);
+        color: #fff;
+        padding: 28px 5%;
+      }
+
+      footer strong {
+        display: inline-block;
+        margin-bottom: 10px;
+      }
+
+      footer p {
+        color: rgba(255, 255, 255, 0.82);
+        margin: 0;
+        line-height: 1.8;
+      }
+
+      footer small {
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      @media (max-width: 640px) {
+        main {
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+
+        header {
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+
+        nav {
+          width: 100%;
+        }
+
+        nav a {
+          flex: 1 1 120px;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="brand">
+        <span class="logo">I</span>
+        <div class="brand-text">
+          <strong>INSTITUTO</strong>
+          <small>Sistema de gestión académica</small>
+        </div>
+      </div>
+
+      <nav aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#carreras">Carreras</a>
+        <a href="#docentes">Docentes</a>
+        <a href="#materias">Materias</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="inicio">
+        <div class="tag">HU005 · Home del sistema</div>
+        <h1>Bienvenido al Instituto</h1>
+        <p>Accedé a las opciones de administración del sistema.</p>
+
+        <div class="cards">
+          <article class="card">
+            <h2>Carreras</h2>
+            <p>Gestioná las carreras disponibles.</p>
+            <a class="button" href="#carreras">Ver carreras →</a>
+          </article>
+
+          <article class="card">
+            <h2>Docentes</h2>
+            <p>Consultá los datos del equipo docente.</p>
+            <a class="button" href="#docentes">Ver docentes →</a>
+          </article>
+
+          <article class="card">
+            <h2>Materias</h2>
+            <p>Accedé a las materias de las carreras.</p>
+            <a class="button" href="#materias">Ver materias →</a>
+          </article>
+        </div>
+      </section>
+
+      <hr />
+
+      <section id="carreras">
+        <div class="tag">HU001 · Carreras del instituto</div>
+        <h1>Carreras del Instituto</h1>
+        <p>Listado de las carreras disponibles.</p>
+
+        <div class="panel">
+          <div class="actions">
+            <a class="button" href="#alta-carrera">+ Agregar carrera</a>
+            <button type="button" class="danger">Borrar seleccionados</button>
+            <button type="button" class="secondary">Exportar XLS</button>
+          </div>
+
+          <div class="scroll">
+            <table aria-label="Listado de carreras">
+              <thead>
+                <tr>
+                  <th>Seleccionar</th>
+                  <th>Código</th>
+                  <th>Descripción</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input type="checkbox" aria-label="Seleccionar carrera" /></td>
+                  <td>TECAGRO</td>
+                  <td>Tecnicatura Agropecuaria</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="note">1 registro · Botones de muestra, sin operaciones sobre datos.</p>
+
+          <details id="alta-carrera" open>
+            <summary>Formulario: Agregar carrera</summary>
+
+            <label for="codigo">Código</label>
+            <input id="codigo" placeholder="Ej.: TECAGRO" />
+
+            <label for="descripcion">Descripción</label>
+            <input id="descripcion" placeholder="Ej.: Tecnicatura Agropecuaria" />
+
+            <div class="actions" style="margin-top: 18px;">
+              <button type="button">Aceptar</button>
+              <button type="button" class="secondary">Cancelar</button>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <hr />
+
+      <section id="docentes">
+        <div class="tag">HU002 · Docentes del instituto</div>
+        <h1>Docentes del Instituto</h1>
+        <p>Listado de los docentes disponibles.</p>
+
+        <div class="panel">
+          <div class="actions">
+            <a class="button" href="#alta-docente">+ Agregar docente</a>
+            <button type="button" class="danger">Borrar seleccionados</button>
+          </div>
+
+          <div class="scroll">
+            <table aria-label="Listado de docentes">
+              <thead>
+                <tr>
+                  <th>Seleccionar</th>
+                  <th>Apellido</th>
+                  <th>Nombre</th>
+                  <th>Teléfono</th>
+                  <th>Título</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input type="checkbox" aria-label="Seleccionar docente" /></td>
+                  <td>Pérez</td>
+                  <td>Juan</td>
+                  <td>+549 2355 111111</td>
+                  <td>Contador Público</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="note">1 registro · Botones de muestra, sin operaciones sobre datos.</p>
+
+          <details id="alta-docente" open>
+            <summary>Formulario: Agregar docente</summary>
+
+            <label for="apellido">Apellido</label>
+            <input id="apellido" placeholder="Pérez" />
+
+            <label for="nombre">Nombre</label>
+            <input id="nombre" placeholder="Juan" />
+
+            <label for="telefono">Teléfono</label>
+            <input id="telefono" type="tel" placeholder="+549 2355 111111" />
+
+            <label for="titulo">Título</label>
+            <input id="titulo" placeholder="Contador Público" />
+
+            <div class="actions" style="margin-top: 18px;">
+              <button type="button">Aceptar</button>
+              <button type="button" class="secondary">Cancelar</button>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section id="materias">
+        <div class="tag">HU003 · Materias</div>
+        <h2>Materias</h2>
+        <p>Destino de navegación de referencia. Esta pantalla no está solicitada en el punto 5.</p>
+      </section>
+
+      <p class="note">
+        Maqueta visual en HTML y CSS, sin JavaScript. Las tres pantallas están una debajo de la otra.
+        No guarda, borra ni exporta datos. Logo y contacto ilustrativos.
+      </p>
+    </main>
+
+    <footer id="contacto">
+      <strong>Instituto · Contacto</strong>
+      <p>
+        Calle Ejemplo 123 · Buenos Aires<br />
+        Teléfono: (011) 4000-0000<br />
+        Correo: contacto@instituto.example
+      </p>
+      <small>Datos ficticios para la maqueta.</small>
+    </footer>
+  </body>
+</html>
